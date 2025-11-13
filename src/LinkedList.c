@@ -3,7 +3,7 @@
 #include<stdlib.h>
 #include<stdbool.h>
 #include "../headers/LinkedList.h"
-
+#include "../headers/SLL_API.h"
 Node* CreateNode(int data){
     Node* NewNode = malloc(sizeof(Node));
     if (!NewNode) {
@@ -269,5 +269,8 @@ int main(){
     ClearList(&node1); */
     Insert(&node2,10,0);
     PrintList(node2);
+    Node* node3  = LinkedList.CreateNode(40);
+    LinkedList.PrintList(node3);
+    
     return 0;
 }
