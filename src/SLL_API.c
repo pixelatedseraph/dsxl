@@ -16,5 +16,5 @@ SLL_API LinkedList = {
     .GetLength     =  GetLength    ,
     .Locate        =  Locate       ,
     .Contains      =  Contains     ,
-    .PrintList    =   PrintList    ,
+    .PrintList     =   PrintList    ,
 };
