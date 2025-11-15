@@ -1,5 +1,5 @@
-#include "../headers/LinkedList.h"
-#include "../headers/SLL_API.h"
+#include <dsxl/LinkedList.h>
+#include <dsxl/SLL_API.h>
 
 /* 
     * instantiate the struct with functions
@@ -16,5 +16,5 @@ SLL_API LinkedList = {
     .GetLength     =  GetLength    ,
     .Locate        =  Locate       ,
     .Contains      =  Contains     ,
-    .PrintList     =   PrintList    ,
+    .PrintList     =  PrintList    ,
 };

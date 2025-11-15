@@ -2,8 +2,7 @@
 #include<string.h>
 #include<stdlib.h>
 #include<stdbool.h>
-#include "../headers/LinkedList.h"
-#include "../headers/SLL_API.h"
+#include <dsxl/LinkedList.h>
 Node* CreateNode(int data){
     Node* NewNode = malloc(sizeof(Node));
     if (!NewNode) {
@@ -258,19 +257,19 @@ bool IsEmpty(Node* head){
     return false;
 }
 
-int main(){
+/* int main(){
     Node* node1 = CreateNode(1);
     Node* node2 = NULL;
-   /*  PrintList(node1);
+    PrintList(node1);
     Insert(&node1,2,1);
     PrintList(node1);
     Insert(&node1,3,3);
     printf("%d \n",IsEmpty(node1));
-    ClearList(&node1); */
+    ClearList(&node1); 
     Insert(&node2,10,0);
     PrintList(node2);
     Node* node3  = LinkedList.CreateNode(40);
     LinkedList.PrintList(node3);
     
     return 0;
-}
+} */

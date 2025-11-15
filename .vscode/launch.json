@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/ace/Projects/dsxl/binaries",
-      "program": "/home/ace/Projects/dsxl/binaries/build/Debug/outDebug",
+      "cwd": "/home/ace/Projects/dsxl/src",
+      "program": "/home/ace/Projects/dsxl/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
