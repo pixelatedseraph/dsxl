@@ -93,7 +93,7 @@ list.DeleteAtBack(&ListHead(list));
 ### Clone
 
 ```bash
-git clone https://github.com/yourusername/dsxl.git
+git clone https://github.com/pixelatedseraph/dsxl.git
 cd dsxl
 ```
 
@@ -106,17 +106,12 @@ cmake ..
 make
 ```
 
-### Run Examples
+### Run test
 
 ```bash
-./examples/example_linkedlist
+./dsxl_test
 ```
 
-### Run Tests
-
-```bash
-ctest
-```
 
 ---
 
