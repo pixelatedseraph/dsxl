@@ -2,6 +2,7 @@
 #include<string.h>
 #include<stdlib.h>
 #include<stdbool.h>
+#include<stdarg.h>
 #include <dsxl/LinkedList.h>
 Node* CreateNode(int data){
     Node* NewNode = malloc(sizeof(Node));
@@ -256,6 +257,7 @@ bool IsEmpty(Node* head){
         return true;
     return false;
 }
+
 
 /* int main(){
     Node* node1 = CreateNode(1);

@@ -6,5 +6,5 @@ C_DEFINES =
 
 C_INCLUDES = -I/home/ace/Projects/dsxl/src/../include
 
-C_FLAGS = -g -std=gnu17 -fPIE
+C_FLAGS = -std=gnu17 -fPIE
 

@@ -6,8 +6,10 @@
 #include <dsxl/DLinkedList.h>
 
 
-int main(){
-    Node* Node1 = LinkedList.CreateNode(10);
-    LinkedList.PrintList(Node1);
+/* int main(){
+    LinkedList list = new_List();
+    Node* head = list.header;
+    list.Push(&head,1,2,3);
+    PrintList(head);
     return 0;
-}
+} */

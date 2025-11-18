@@ -213,7 +213,7 @@ void DSetValue(DNode* head ,int data ,int idx){
     int Length = DGetLength(head);
     if (idx >= Length) return;
     DNode* TempNode = head;
-    for (int i = 0 ; i < idx -1 ; ++i){
+    for (int i = 0 ; i < idx -1 ; ++i){ 
         TempNode = TempNode -> next;
     }
     (TempNode->next)->data = data;

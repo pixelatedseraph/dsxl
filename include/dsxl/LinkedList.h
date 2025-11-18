@@ -1,6 +1,6 @@
 #pragma once
 #include <stdbool.h>
-
+#include <stdarg.h>
 typedef struct Node {
     int data;
     struct Node* next;
@@ -17,4 +17,8 @@ int GetLength(Node*);
 int Locate(Node*,int);
 bool Contains(Node*,int);
 void PrintList(Node*);
-
+int GetValue(Node*,int);
+void SetValue(Node*,int,int);
+void ClearList(Node**);
+bool IsEmpty(Node*);
+void push(Node** ,int,...);
