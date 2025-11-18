@@ -122,15 +122,15 @@ ctest
 
 ## Roadmap
 
-- [ ] ArrayList / dynamic array
-- [ ] Stack implementation
-- [ ] Queue implementation
-- [ ] HashMap / hash table
-- [ ] Priority queue
-- [ ] AVL and Red-Black Trees
-- [ ] Generic type containers using `void*`
-- [ ] Allocator hooks for custom memory strategies
-- [ ] Benchmarking and profiling suite
+-  ArrayList / dynamic array
+-  Stack implementation
+-  Queue implementation
+-  HashMap / hash table
+-  Priority queue
+-  AVL and Red-Black Trees
+-  Generic type containers using `void*`
+-  Allocator hooks for custom memory strategies
+-  Benchmarking and profiling suite
 
 ---
 
