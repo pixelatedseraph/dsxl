@@ -125,10 +125,24 @@ src/CMakeFiles/dsxl.dir/SLL_API.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dsxl.dir/SLL_API.c.s"
 	cd /home/ace/Projects/dsxl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ace/Projects/dsxl/src/SLL_API.c -o CMakeFiles/dsxl.dir/SLL_API.c.s
 
+src/CMakeFiles/dsxl.dir/Vector.c.o: src/CMakeFiles/dsxl.dir/flags.make
+src/CMakeFiles/dsxl.dir/Vector.c.o: /home/ace/Projects/dsxl/src/Vector.c
+src/CMakeFiles/dsxl.dir/Vector.c.o: src/CMakeFiles/dsxl.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ace/Projects/dsxl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object src/CMakeFiles/dsxl.dir/Vector.c.o"
+	cd /home/ace/Projects/dsxl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/dsxl.dir/Vector.c.o -MF CMakeFiles/dsxl.dir/Vector.c.o.d -o CMakeFiles/dsxl.dir/Vector.c.o -c /home/ace/Projects/dsxl/src/Vector.c
+
+src/CMakeFiles/dsxl.dir/Vector.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/dsxl.dir/Vector.c.i"
+	cd /home/ace/Projects/dsxl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ace/Projects/dsxl/src/Vector.c > CMakeFiles/dsxl.dir/Vector.c.i
+
+src/CMakeFiles/dsxl.dir/Vector.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/dsxl.dir/Vector.c.s"
+	cd /home/ace/Projects/dsxl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ace/Projects/dsxl/src/Vector.c -o CMakeFiles/dsxl.dir/Vector.c.s
+
 src/CMakeFiles/dsxl.dir/test.c.o: src/CMakeFiles/dsxl.dir/flags.make
 src/CMakeFiles/dsxl.dir/test.c.o: /home/ace/Projects/dsxl/src/test.c
 src/CMakeFiles/dsxl.dir/test.c.o: src/CMakeFiles/dsxl.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ace/Projects/dsxl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object src/CMakeFiles/dsxl.dir/test.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/ace/Projects/dsxl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object src/CMakeFiles/dsxl.dir/test.c.o"
 	cd /home/ace/Projects/dsxl/build/src && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT src/CMakeFiles/dsxl.dir/test.c.o -MF CMakeFiles/dsxl.dir/test.c.o.d -o CMakeFiles/dsxl.dir/test.c.o -c /home/ace/Projects/dsxl/src/test.c
 
 src/CMakeFiles/dsxl.dir/test.c.i: cmake_force
@@ -145,6 +159,7 @@ dsxl_OBJECTS = \
 "CMakeFiles/dsxl.dir/DoubleList.c.o" \
 "CMakeFiles/dsxl.dir/LinkedList.c.o" \
 "CMakeFiles/dsxl.dir/SLL_API.c.o" \
+"CMakeFiles/dsxl.dir/Vector.c.o" \
 "CMakeFiles/dsxl.dir/test.c.o"
 
 # External object files for target dsxl
@@ -154,10 +169,11 @@ src/libdsxl.a: src/CMakeFiles/dsxl.dir/DLL_API.c.o
 src/libdsxl.a: src/CMakeFiles/dsxl.dir/DoubleList.c.o
 src/libdsxl.a: src/CMakeFiles/dsxl.dir/LinkedList.c.o
 src/libdsxl.a: src/CMakeFiles/dsxl.dir/SLL_API.c.o
+src/libdsxl.a: src/CMakeFiles/dsxl.dir/Vector.c.o
 src/libdsxl.a: src/CMakeFiles/dsxl.dir/test.c.o
 src/libdsxl.a: src/CMakeFiles/dsxl.dir/build.make
 src/libdsxl.a: src/CMakeFiles/dsxl.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ace/Projects/dsxl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C static library libdsxl.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/ace/Projects/dsxl/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C static library libdsxl.a"
 	cd /home/ace/Projects/dsxl/build/src && $(CMAKE_COMMAND) -P CMakeFiles/dsxl.dir/cmake_clean_target.cmake
 	cd /home/ace/Projects/dsxl/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/dsxl.dir/link.txt --verbose=$(VERBOSE)
 

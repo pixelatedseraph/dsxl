@@ -4,6 +4,7 @@
 #include<stdbool.h>
 #include<stdarg.h>
 #include <dsxl/LinkedList.h>
+#include <dsxl/SLL_API.h>
 Node* CreateNode(int data){
     Node* NewNode = malloc(sizeof(Node));
     if (!NewNode) {
@@ -15,37 +16,48 @@ Node* CreateNode(int data){
     return NewNode;
 }
 /* static helper - private */
-static void KillNode(Node* node){
-    free(node);
-}
-void InsertFront(Node** head,int data){
-    Node* NewNode = CreateNode(data);
-    NewNode->next = *head;
-    *head = NewNode;
+static void KillNode(Node* head){
+    free(head);
 }
 
-void InsertBack(Node** head,int data){
+void InsertFront(LinkedList* List,int data){
     Node* NewNode = CreateNode(data);
-    if(*head == NULL){
-        *head = NewNode;
+    if(List->header == NULL){
+        List->header = NewNode;
+        List->length++;
+        return;
+    }
+    NewNode->next = List->header;
+    List->header = NewNode;
+    List->length++;
+    return;
+}
+
+void InsertBack(LinkedList* List,int data){
+    Node* NewNode = CreateNode(data);
+    if(List->header == NULL){
+        List->header = NewNode;
+        List->length++;
         return;
     } 
     else {
-        Node* TempNode = *head;
+        Node* TempNode = List->header;
         while (TempNode->next != NULL){
             TempNode = TempNode -> next;
         }
         TempNode->next = NewNode;
+        List->length++;
         return;
     }
 }
 
-void Insert(Node** head, int data,int idx){
+void Insert(LinkedList* List, int data,int idx){
 
     /* if head is empty  */
-    if (!*head){
+    if (!List -> header){
         if (idx == 0){
-            *head = CreateNode(data);
+            List -> header = CreateNode(data);
+            List->length++;
             return;
         }
         else{
@@ -56,16 +68,16 @@ void Insert(Node** head, int data,int idx){
     /* if head isnt empty */
     else{
         if(idx == 0){
-            InsertFront(head,data);
+            InsertFront(List,data);
             return;
         }
-        int Length = GetLength(*head);
+        int Length = List->length;
         if (idx > Length){
             fprintf(stderr,"Invalid index\n");
             return;
         }
         if (idx == Length){
-            InsertBack(head,data);
+            InsertBack(List,data);
             return;
         }
     }
@@ -73,40 +85,41 @@ void Insert(Node** head, int data,int idx){
     Node* NewNode = CreateNode(data);
         int LeftTarget = idx- 1;
         int RightTarget = idx;
-        Node* LeftTemp  = *head;
-        Node* RightTemp = *head;
+        Node* LeftTemp  = List -> header;
+        Node* RightTemp = List -> header;
         for (int i = 0 ; i < LeftTarget ;++i){
             LeftTemp = LeftTemp -> next;
         }
         RightTemp = LeftTemp ->next;
         LeftTemp->next = NewNode;
         NewNode->next = RightTemp;
+        List -> length++;
         return;
 }
 
-void DeleteAtIndex(Node** head,int idx){
-    if(!*head) return ;
+void DeleteAtIndex(LinkedList* List,int idx){
+    if(!List -> header) return ;
     if(idx < 0) {
         fprintf(stderr,"Invalid index\n");
         return;
     }
     if (idx == 0) {
-        DeleteAtFront(head);
+        DeleteAtFront(List);
         return;
     }
-    int Length = GetLength(*head);
+    int Length =  List->length;
     if (idx > Length -1){
         fprintf(stderr,"Invalid index\n");
         return;
     }
     if (idx == Length -1){
-        DeleteAtBack(head);
+        DeleteAtBack(List);
         return;
     }
     int LeftTarget = idx -1;
     int RightTarget = idx ;
-    Node* LeftTemp = *head;
-    Node* RightTemp = *head;
+    Node* LeftTemp = List -> header;
+    Node* RightTemp = List -> header;
     for(int i = 0 ; i < LeftTarget ; ++i){
         LeftTemp = LeftTemp ->next;
     }
@@ -115,61 +128,62 @@ void DeleteAtIndex(Node** head,int idx){
     LeftTemp->next = RightTemp->next;
     KillNode(TempNode);
     TempNode = NULL;
+    List -> length--;
+    return;
 }
 
-
-void DeleteAtFront(Node** head){
-    if(!*head) return ;
-    int Length = GetLength(*head);
+void DeleteAtFront(LinkedList* List){
+    if(!List -> header) return;
+    int Length = List->length;
     if (Length == 1) {
-        free(*head);
-        *head = NULL;
+        free(List -> header);
+        List -> header = NULL;
+        List -> length--;
         return;
     }
-    Node* PreviousHead = *head;
-    Node* SuccessorNode = *head;
+    Node* PreviousHead = List -> header;
+    Node* SuccessorNode = List -> header;
     SuccessorNode = SuccessorNode ->next;
-    *head = SuccessorNode;
+    List -> header = SuccessorNode;
     PreviousHead->next = NULL;
     KillNode(PreviousHead);
+    List -> length--;
+    return;
 }
 
-void DeleteAtBack(Node** head){
-    if(!*head) return ;
-    int Length = GetLength(*head);
+void DeleteAtBack(LinkedList* List){
+    if(!List -> header) return ;
+    int Length = List->length;
     if (Length == 1) {
-        free(*head);
-        *head = NULL;
+        free(List -> header);
+        List -> header = NULL;
+        List -> length--;
         return;
     }
-    Node* SuccessorNode = *head;
+    Node* SuccessorNode = List -> header;
     for (int i = 0 ; i < Length - 2 ; ++i){
         SuccessorNode = SuccessorNode ->next;
     }
     Node* TempNode = SuccessorNode->next;
     KillNode(TempNode);
     SuccessorNode->next = NULL;
+    List -> length--;
+    return ;
 }
 
-int GetLength (Node* head){
-    if(head == NULL) {
+int GetLength (LinkedList* List){
+    if(List->header == NULL) {
         return 0;
     }
-    int length = 0;
-    Node* TempNode = head;
-    while(TempNode != NULL){
-        TempNode = TempNode -> next;
-        length++;
-    }
-    return length;
+    return List->length;
 }
 /* 
     * returns -1 if fails or returns the index  
 */
-int Locate (Node* head, int value){
-    int Length = GetLength(head);
-    int idx;
-    Node* TempNode = head;
+int Locate (LinkedList* List, int value){
+    int Length = List->length;
+    int idx = 0 ;
+    Node* TempNode = List -> header ;
     for (int i = 0 ; i < Length ; ++i){
         if (TempNode->data == value){
             idx = i;
@@ -180,21 +194,21 @@ int Locate (Node* head, int value){
     return -1;
 }
 
-bool Contains(Node* head, int value){
-    int Result =  Locate(head,value);
+bool Contains(LinkedList* List, int value){
+    int Result =  Locate(List,value);
     return Result >=0 ? true : false ;
 }
 
 /* 
     *returns the value at idx 
 */
-int GetValue(Node* head,int idx){
-    if(head == NULL || idx < 0){
+int GetValue(LinkedList* List,int idx){
+    if(List->header == NULL || idx < 0){
         printf("Invalid Operation!\n");
         exit(1);
     }
-    Node* TempNode = head;
-    int Length = GetLength(head);
+    Node* TempNode = List->header;
+    int Length = List->length;
     if (idx > Length -1){
         printf("INVALID INDEX\n");
         exit(1);
@@ -207,17 +221,17 @@ int GetValue(Node* head,int idx){
 /* 
     *updates the value at certain index 
 */
-void SetValue(Node* head,int data,int idx){
-    if(head == NULL || idx < 0){
+void SetValue(LinkedList* List,int data,int idx){
+    if(List->header == NULL || idx < 0){
         fprintf(stderr,"Invalid Operation\n");
         exit(1);
     }
-    int Length = GetLength(head);
+    int Length =  List->length;
     if (idx > Length -1){
         fprintf(stderr,"INVALID INDEX\n");
         exit(1);
     }
-    Node* TempNode = head;
+    Node* TempNode = List -> header;
     for (int i = 0 ; i < idx ; ++i){
         TempNode = TempNode ->next;
     }
@@ -226,12 +240,12 @@ void SetValue(Node* head,int data,int idx){
 /* 
     *prints the linked list in a pretty format
 */
-void PrintList(Node* head){
-    if(head == NULL) {
+void PrintList(LinkedList* List){
+    if(List -> header == NULL) {
         printf("EMPTY LIST\n");
         return;
     }
-    Node* TempNode = head;
+    Node* TempNode = List -> header;
     while(TempNode!=NULL){
         printf("%d -> ",TempNode->data);
         TempNode = TempNode -> next;
@@ -239,21 +253,56 @@ void PrintList(Node* head){
     printf("NULL");
     printf("\n");
 }
+
+/* 
+    * prints with extra information
+ */
+
+ void VerbosePrintList(LinkedList* List){
+    if (!List->header) {
+        printf("EMPTY LIST\n");
+        return;
+    }
+    int Length =  List->length;
+    Node* TempNode = List->header;
+    Node* InfoNode = List->header;
+        for (int i =0 ; i < Length ; ++i){
+            printf("- - - - - - - - "); printf("- - - - - - - - - ");
+        } 
+    printf("\n");
+        for (int i =0 ; i < Length ; ++i){
+            printf("|   %d         | ",TempNode->data); printf("%p  | ",TempNode->next);
+            TempNode = TempNode ->next;
+        }
+    printf("\n");
+        for (int i =0 ; i < Length ; ++i){
+            printf("- - - - - - - - "); printf("- - - - - - - - - ");
+        } 
+    printf("\n");
+        for (int i =0 ; i < Length ; ++i){
+            printf("Node%d: %p              ",i+1,InfoNode);
+            InfoNode = InfoNode ->next;
+        }
+    printf("\n");
+    return;
+ }
+
 /* 
     *free memory
 */
-void ClearList(Node** head){
-    Node* TempNode = *head;
+void ClearList(LinkedList* List){
+    Node* TempNode = List -> header;
     while(TempNode!=NULL){
         Node* LoopNode = TempNode->next;
         KillNode(TempNode);
         TempNode = LoopNode;
     } 
-    *head = NULL;
+    List -> header = NULL;
+    List -> length = 0;
 }
 
-bool IsEmpty(Node* head){
-    if (head == NULL) 
+bool IsEmpty(LinkedList* List){
+    if (List->header == NULL) 
         return true;
     return false;
 }

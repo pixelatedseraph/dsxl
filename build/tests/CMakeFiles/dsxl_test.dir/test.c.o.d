@@ -57,7 +57,7 @@ tests/CMakeFiles/dsxl_test.dir/test.c.o: \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
  /home/ace/Projects/dsxl/src/../include/dsxl/SLL_API.h \
- /home/ace/Projects/dsxl/src/../include/dsxl/LinkedList.h \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
  /home/ace/Projects/dsxl/src/../include/dsxl/DLL_API.h \
- /home/ace/Projects/dsxl/src/../include/dsxl/DLinkedList.h
+ /home/ace/Projects/dsxl/src/../include/dsxl/DLinkedList.h \
+ /home/ace/Projects/dsxl/src/../include/dsxl/LinkedList.h

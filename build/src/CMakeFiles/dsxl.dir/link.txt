@@ -1,2 +1,2 @@
-/usr/bin/ar qc libdsxl.a CMakeFiles/dsxl.dir/DLL_API.c.o CMakeFiles/dsxl.dir/DoubleList.c.o CMakeFiles/dsxl.dir/LinkedList.c.o CMakeFiles/dsxl.dir/SLL_API.c.o CMakeFiles/dsxl.dir/test.c.o
+/usr/bin/ar qc libdsxl.a CMakeFiles/dsxl.dir/DLL_API.c.o CMakeFiles/dsxl.dir/DoubleList.c.o CMakeFiles/dsxl.dir/LinkedList.c.o CMakeFiles/dsxl.dir/SLL_API.c.o CMakeFiles/dsxl.dir/Vector.c.o CMakeFiles/dsxl.dir/test.c.o
 /usr/bin/ranlib libdsxl.a

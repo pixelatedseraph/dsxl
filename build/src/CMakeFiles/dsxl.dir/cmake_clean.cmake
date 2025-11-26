@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/dsxl.dir/LinkedList.c.o.d"
   "CMakeFiles/dsxl.dir/SLL_API.c.o"
   "CMakeFiles/dsxl.dir/SLL_API.c.o.d"
+  "CMakeFiles/dsxl.dir/Vector.c.o"
+  "CMakeFiles/dsxl.dir/Vector.c.o.d"
   "CMakeFiles/dsxl.dir/test.c.o"
   "CMakeFiles/dsxl.dir/test.c.o.d"
   "libdsxl.a"

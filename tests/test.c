@@ -7,10 +7,11 @@
 
 int main(){
     LinkedList list = new_List(10,20,30,sentinel);
-    list.PrintList(ListHead(list));
-    list.DeleteAtBack(&ListHead(list));
-    list.PrintList(ListHead(list));
-    list.ClearList(&ListHead(list));
-    list.PrintList(ListHead(list));
+    list.PrintList(ref(list));
+    list.InsertBack(ref(list),40);
+    list.PrintList(ref(list));
+    list = new_List(50,60,70,sentinel);
+    list.PrintList(ref(list));
+     list.VerbosePrintList(ref(list)); 
     return 0;
 }

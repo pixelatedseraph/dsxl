@@ -236,6 +236,30 @@ SLL_API.c.s:
 	cd /home/ace/Projects/dsxl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/dsxl.dir/build.make src/CMakeFiles/dsxl.dir/SLL_API.c.s
 .PHONY : SLL_API.c.s
 
+Vector.o: Vector.c.o
+.PHONY : Vector.o
+
+# target to build an object file
+Vector.c.o:
+	cd /home/ace/Projects/dsxl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/dsxl.dir/build.make src/CMakeFiles/dsxl.dir/Vector.c.o
+.PHONY : Vector.c.o
+
+Vector.i: Vector.c.i
+.PHONY : Vector.i
+
+# target to preprocess a source file
+Vector.c.i:
+	cd /home/ace/Projects/dsxl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/dsxl.dir/build.make src/CMakeFiles/dsxl.dir/Vector.c.i
+.PHONY : Vector.c.i
+
+Vector.s: Vector.c.s
+.PHONY : Vector.s
+
+# target to generate assembly for a file
+Vector.c.s:
+	cd /home/ace/Projects/dsxl/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/dsxl.dir/build.make src/CMakeFiles/dsxl.dir/Vector.c.s
+.PHONY : Vector.c.s
+
 test.o: test.c.o
 .PHONY : test.o
 
@@ -282,6 +306,9 @@ help:
 	@echo "... SLL_API.o"
 	@echo "... SLL_API.i"
 	@echo "... SLL_API.s"
+	@echo "... Vector.o"
+	@echo "... Vector.i"
+	@echo "... Vector.s"
 	@echo "... test.o"
 	@echo "... test.i"
 	@echo "... test.s"

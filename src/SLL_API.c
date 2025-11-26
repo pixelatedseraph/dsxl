@@ -15,10 +15,11 @@ LinkedList new_List(int first,...){
     LinkedList List;
     va_list args;
     va_start (args, first);
-    List.header        =  NULL          ;
+    List.header        =  NULL           ;
+    List.length        =  0              ;
     int value = first;
-       while (value != sentinel) {
-        InsertBack(&List.header, value);
+    while (value != sentinel) {
+        InsertBack(&List, value);
         value = va_arg(args, int);
     }
     va_end (args);
@@ -33,13 +34,13 @@ LinkedList new_List(int first,...){
     List.Locate        =  Locate        ;
     List.Contains      =  Contains      ;
     List.PrintList     =  PrintList     ;
+    List.VerbosePrintList = VerbosePrintList ;
     List.GetValue      =  GetValue      ;
     List.SetValue      =  SetValue      ;
     List.ClearList     =  ClearList     ;
     List.IsEmpty       =  IsEmpty       ;
     return List;
 };
-
 
 
 /* SLL_API LinkedList = {
