@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/dsxl_test.dir/test.c.o -o dsxl_test  ../src/libdsxl.a 
